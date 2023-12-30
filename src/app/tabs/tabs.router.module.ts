@@ -19,7 +19,9 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../categories/categories.module').then(m => m.CategoriesPageModule)
+            redirectTo: 'real-estate',
+            pathMatch: 'full'
+            //loadChildren: () => import('../categories/categories.module').then(m => m.CategoriesPageModule)
           },
           {
             path: 'fashion',
