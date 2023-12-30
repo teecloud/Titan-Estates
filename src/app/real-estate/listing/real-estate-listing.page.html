@@ -32,8 +32,13 @@
             </p>
           </ion-col>
           <ion-col class="bookmark-col" size="2">
+           <ion-button fill="clear" (click)="likeClicked(item)" >
             <ion-icon *ngIf="item.liked" class="like-icon" name="heart"></ion-icon>
             <ion-icon *ngIf="!item.liked" class="like-icon" name="heart-outline"></ion-icon>
+           </ion-button>
+  
+           
+            
           </ion-col>
         </ion-row>
       </ion-col>

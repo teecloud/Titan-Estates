@@ -348,3 +348,9 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 .DS_Store
+
+.angular/cache/15.2.10/babel-webpack/
+
+*.pack
+
+*.old

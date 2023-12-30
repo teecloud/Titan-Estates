@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { RealEstateListingModel } from './real-estate-listing.model';
+import { RealEstateItemModel, RealEstateListingModel } from './real-estate-listing.model';
 import { switchMap } from 'rxjs/operators';
 import { ResolverHelper, IResolvedRouteData } from '../../utils/resolver-helper';
 
@@ -36,5 +36,9 @@ export class RealEstateListingPage implements OnInit {
       },
       error: (error) => console.log(error)
     });
+  }
+
+  likeClicked(item: RealEstateItemModel){
+    item.liked = !item.liked
   }
 }

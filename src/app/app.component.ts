@@ -21,8 +21,8 @@ import { HistoryHelperService } from './utils/history-helper.service';
 export class AppComponent {
   appPages = [
     {
-      title: 'Categories',
-      url: '/app/categories',
+      title: 'Listings',
+      url: '/app/real-estate',
       ionicIcon: 'list-outline'
     },
     {
