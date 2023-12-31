@@ -11,7 +11,7 @@ const routes: Routes = [
       // /app/ redirect
       {
         path: '',
-        redirectTo: 'categories',
+        redirectTo: 'fashion',
         pathMatch: 'full'
       },
       {
@@ -19,7 +19,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            redirectTo: 'real-estate',
+            redirectTo: 'fashion',
             pathMatch: 'full'
             //loadChildren: () => import('../categories/categories.module').then(m => m.CategoriesPageModule)
           },
