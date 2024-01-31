@@ -1,23 +1,27 @@
-name: Tests
+name: Install Dependencies, Lint, Build and Test
+
 on: [push]
+
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest
+  test:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [18]
+        os: [windows-latest, macOS-latest]
+
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v3
-        # TODO: add your branch to checkout
-        with:
-          ref: master
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 19.x
-
-      - name: install dependencies
-        run: npm i
-
-      - name: Create Build Folder
-        run: npm run build
-
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node_version }}
+    - name: Install Dependencies
+      run: npm ci
+    - name: Lint
+      run: npm run lint
+    - name: Build
+      run: npm run build -- --prod
+    - name: Test
+      run: npm test
