@@ -10,10 +10,6 @@ jobs:
         with:
           ref: master
 
-      - name: Ionic Build
-        with:
-          build: npm run build
-          start: npm start
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
