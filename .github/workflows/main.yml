@@ -4,12 +4,24 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+      - name: Checkout source
+        uses: actions/checkout@v3
+        # TODO: add your branch to checkout
+        with:
+          ref: master
+
       - name: Ionic Build
         with:
           build: npm run build
           start: npm start
-      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 19.x
+
+      - name: install dependencies
+        run: npm i
+
+      - name: Create Build Folder
+        run: npm run build
+
